@@ -1,19 +1,58 @@
-
 <head>
   <link rel="icon" href="icon.png">
 </head>
 
 <style>
-
 h1 {
   text-align: center;
 }
 img {
-  max-width: 100%;
+  max-width: 500px;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto;
+}
+button {
+  display: block;
+  margin: 20px auto;
 }
 </style>
 
+<script>
+  // Assume you have image files named img1.png, img2.png, etc. in the `images` directory
+  const imageNames = [
+    "img0080.png", "img0429.png", "img0432.png", "img0434.png",
+    "img0743.png", "img0836.png", "img0837.png", "img0839.png",
+    "img0852.png", "img0853.png", "img0977.png", "img0978.png",
+    "img0979.png", "img1066.png", "img1080.png", "img1081.png",
+    "img1083.png", "img1120.png", "img1121.png", "img1583.png",
+    "img1619.png", "img1620.png", "img1678.png", "img1681.png",
+    "img1687.png", "img1688.png", "img1690.png", "img1691.png",
+    "img1696.png", "img1717.png", "img1724.png", "img1781.png",
+    "img1786.png", "img1787.png", "img1824.png", "img1825.png",
+    "img1826.png", "img1862.png", "img1863.png", "img1864.png",
+    "img1865.png", "img5576.png", "img6432.png", "IMG_0743.png",
+    "IMG_1120.png", "IMG_1583.png", "IMG_1619.png", "IMG_1620.png",
+    "IMG_1678.png", "IMG_1681.png", "IMG_1687.png", "IMG_1688.png",
+    "IMG_1690.png", "IMG_1691.png", "IMG_1696.png", "IMG_1717.png",
+    "IMG_1724.png", "IMG_1781.png", "IMG_1786.png", "IMG_1787.png",
+    "IMG_1824.png", "IMG_1825.png", "IMG_1826.png", "IMG_1862.png",
+    "IMG_1863.png", "IMG_1864.png", "IMG_1865.png"
+];
 
+  function nextImage() {
+    // Get a random index from the array
+    const randomIndex = Math.floor(Math.random() * imageNames.length);
+
+    // Create the new image path
+    const newImagePath = "images/" + imageNames[randomIndex];
+
+    // Set the new image path
+    document.getElementById("carouselImage").src = newImagePath;
+  }
+</script>
 
 <h1>Happy birthday!</h1>
-<img src="gf.png"></img>
+<button onclick="nextImage()">Next</button>
+<img id="carouselImage" src="images/img0080.png"></img>
+
