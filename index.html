@@ -1,6 +1,8 @@
 <head>
   <link rel="icon" href="icon.png">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.2.0"></script>
 </head>
+
 
 <style>
 h1 {
@@ -19,6 +21,13 @@ button {
 </style>
 
 <script>
+  function launchConfetti() {
+    confetti({
+        particleCount: 100, // number of particles
+        spread: 70,         // spread of particles
+        origin: {y: 0.6}    // point to shoot from, 0.6 will launch it slightly above the middle
+    });
+}
   // Assume you have image files named img1.png, img2.png, etc. in the `images` directory
   const imageNames = [
     "img0080.png", "img0429.png", "img0432.png", "img0434.png",
@@ -49,6 +58,7 @@ button {
 
     // Set the new image path
     document.getElementById("carouselImage").src = newImagePath;
+    launchConfetti();
   }
 </script>
 
