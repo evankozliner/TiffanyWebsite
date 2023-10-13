@@ -5,9 +5,39 @@
 
 
 <style>
+@font-face {
+  font-family: 'MyCustomFont'; /* Define a name for the font */
+  src: url('UniversNextProRegular.ttf') format('truetype'); /* Point to the font file */
+}
+body {
+  font-family: 'MyCustomFont', sans-serif; /* Use the name defined in @font-face */
+}
+
 h1 {
   text-align: center;
+  font-family: 'univers-next-pro-regular';
 }
+button {
+  display: block;
+  margin: 20px auto;
+  padding: 5px 10px; /* Add padding to increase button size */
+  font-size: 20px; /* Increase font size */
+  font-family: 'MyCustomFont', sans-serif;
+  background-color: black;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer;
+  transition: background-color 0.3s; /* Transition effect for hover state */
+}
+
+button:hover {
+  background-color: black; /* Darker green on hover */
+  color: white
+}
+
 img {
   max-width: 500px;
   border-radius: 50%;
@@ -46,7 +76,7 @@ button {
     "IMG_1690.png", "IMG_1691.png", "IMG_1696.png", "IMG_1717.png",
     "IMG_1724.png", "IMG_1781.png", "IMG_1786.png", "IMG_1787.png",
     "IMG_1824.png", "IMG_1825.png", "IMG_1826.png", "IMG_1862.png",
-    "IMG_1863.png", "IMG_1864.png", "IMG_1865.png"
+    "IMG_1863.png", "IMG_1864.png", "IMG_1865.png", "mango.jpeg"
 ];
 
   function nextImage() {
@@ -62,7 +92,9 @@ button {
   }
 </script>
 
-<h1>Happy birthday!</h1>
-<button onclick="nextImage()">Next</button>
-<img id="carouselImage" src="images/img0080.png"></img>
+<body>
+  <h1>Happy Birthday!</h1>
+  <button onclick="nextImage()">Next</button>
+  <img id="carouselImage" src="images/mango.jpeg"></img>
+</body>
 
