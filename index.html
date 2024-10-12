@@ -3,63 +3,70 @@
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.2.0"></script>
 </head>
 
-
 <style>
-@font-face {
-  font-family: 'MyCustomFont'; /* Define a name for the font */
-  src: url('UniversNextProRegular.ttf') format('truetype'); /* Point to the font file */
-}
-body {
-  font-family: 'MyCustomFont', sans-serif; /* Use the name defined in @font-face */
-}
+  @font-face {
+    font-family: 'MyCustomFont';
+    src: url('UniversNextProRegular.ttf') format('truetype');
+  }
+  body {
+    font-family: 'MyCustomFont', sans-serif;
+  }
 
-h1 {
-  text-align: center;
-  font-family: 'univers-next-pro-regular';
-}
-button {
-  display: block;
-  margin: 20px auto;
-  padding: 5px 10px; /* Add padding to increase button size */
-  font-size: 20px; /* Increase font size */
-  font-family: 'MyCustomFont', sans-serif;
-  background-color: black;
-  border: none;
-  color: white;
-  text-align: center;
-  text-decoration: none;
-  border-radius: 5px; /* Rounded corners */
-  cursor: pointer;
-  transition: background-color 0.3s; /* Transition effect for hover state */
-}
+  h1 {
+    text-align: center;
+    font-family: 'univers-next-pro-regular';
+  }
+  .next {
+    display: block;
+    margin: 0 auto;
+  }
 
-button:hover {
-  background-color: black; /* Darker green on hover */
-  color: white
-}
+  button {
+    padding: 10px 20px;
+    font-size: 18px;
+    font-family: 'MyCustomFont', sans-serif;
+    background-color: black;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 10px; /* Spacing between buttons */
+  }
 
-img {
-  max-width: 500px;
-  border-radius: 50%;
-  display: block;
-  margin: 0 auto;
-}
-button {
-  display: block;
-  margin: 20px auto;
-}
+  button:hover {
+    background-color: black;
+    color: white;
+  }
+
+  img {
+    max-width: 500px;
+    border-radius: 50%;
+    display: block;
+    margin: 20px auto;
+  }
+
+  #yearButtons {
+    display: flex;
+    justify-content: center; /* Center buttons horizontally */
+    margin: 20px 0;
+  }
+
+  #buttons2023, #buttons2024 {
+    display: none;
+  }
 </style>
 
 <script>
   function launchConfetti() {
     confetti({
-        particleCount: 100, // number of particles
-        spread: 70,         // spread of particles
-        origin: {y: 0.6}    // point to shoot from, 0.6 will launch it slightly above the middle
+      particleCount: 100,
+      spread: 70,
+      origin: { y: 0.6 }
     });
-}
-  // Assume you have image files named img1.png, img2.png, etc. in the `images` directory
-  const imageNames = [
+  }
+
+  const imageNames2023 = [
     "img0080.png", "img0429.png", "img0432.png", "img0434.png",
     "img0743.png", "img0836.png", "img0837.png", "img0839.png",
     "img0852.png", "img0853.png", "img0977.png", "img0978.png",
@@ -79,22 +86,83 @@ button {
     "IMG_1863.png", "IMG_1864.png", "IMG_1865.png", "mango.jpeg"
 ];
 
-  function nextImage() {
-    // Get a random index from the array
-    const randomIndex = Math.floor(Math.random() * imageNames.length);
+  const imageNames2024 = [
+  "0E4DC509-7ECB-465C-8EA0-15B1533C8835 copy.png",
+  "IMG_3869 copy.png",
+  "IMG_4168.png",
+  "IMG_2903 copy.png",
+  "IMG_3878 copy.png",
+  "IMG_4190.png",
+  "IMG_2904 copy.png",
+  "IMG_3890 copy.png",
+  "IMG_4191.png",
+  "IMG_3048 copy.png",
+  "IMG_3924 copy.png",
+  "IMG_4398.png",
+  "IMG_3071 copy.png",
+  "IMG_3943 copy.png",
+  "IMG_4403.png",
+  "IMG_3982 copy.png",
+  "IMG_4989.png",
+  "IMG_4040 copy.png",
+  "mango.png",
+  "IMG_3633 copy.png",
+  "IMG_4052.png",
+          "71363563968__52ECAFE5-BDB1-4F56-98A3-5E412A595635 copy 2.png",
+          "IMG_5409.jpeg",
+          "IMG_5260 copy.png",
+          "IMG_3189 copy.png",
+          "IMG_3043 copy.png",
+          "IMG_3832 copy.png",
+          "IMG_8346.jpeg",
+          "IMG_6544 copy.png"
 
-    // Create the new image path
-    const newImagePath = "images/" + imageNames[randomIndex];
 
-    // Set the new image path
-    document.getElementById("carouselImage").src = newImagePath;
+];
+
+  function nextImage2023() {
+    const randomIndex = Math.floor(Math.random() * imageNames2023.length);
+    const newImagePath = "images/2023/" + imageNames2023[randomIndex];
+    document.getElementById("carouselImage2023").src = newImagePath;
     launchConfetti();
+  }
+
+  function nextImage2024() {
+    const randomIndex = Math.floor(Math.random() * imageNames2024.length);
+    const newImagePath = "images/2024/" + imageNames2024[randomIndex];
+    document.getElementById("carouselImage2024").src = newImagePath;
+    launchConfetti();
+  }
+
+  function show2023() {
+    document.getElementById('buttons2023').style.display = 'block';
+    document.getElementById('buttons2024').style.display = 'none';
+  }
+
+  function show2024() {
+    document.getElementById('buttons2023').style.display = 'none';
+    document.getElementById('buttons2024').style.display = 'block';
   }
 </script>
 
 <body>
   <h1>Happy Birthday!</h1>
-  <button onclick="nextImage()">Next</button>
-  <img id="carouselImage" src="images/mango.jpeg"></img>
-</body>
 
+  <!-- Year Selector Buttons in a Row -->
+  <div id="yearButtons">
+    <button onclick="show2023()">2023</button>
+    <button onclick="show2024()">2024</button>
+  </div>
+
+  <!-- 2023 Buttons and Image -->
+  <div id="buttons2023">
+    <img id="carouselImage2023" src="images/2023/mango.jpeg" alt="2023 Image">
+    <button class="next" onclick="nextImage2023()">Next 2023 🎉</button>
+  </div>
+
+  <!-- 2024 Buttons and Image -->
+  <div id="buttons2024">
+    <img id="carouselImage2024" src="images/2024/mango.png" alt="2024 Image">
+    <button class="next" onclick="nextImage2024()">Next 2024 🎉</button>
+  </div>
+</body>
